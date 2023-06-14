@@ -41,7 +41,7 @@ def load_jobs_page(driver, page_number):
     driver.maximize_window()  # Maximize the browser window
 
     while True:
-        print("Page:", page_number)
+        print("Page:", page_number + 1)
         page_source = driver.page_source
         soup = BeautifulSoup(page_source, 'html.parser')
         job_cards = soup.select('.job-card-list__entity-lockup')
@@ -65,6 +65,14 @@ def write_company_details(job_cards):
         print("Location:", location)
         print("Workplace Type:", workplace_type)
         print("-------------------------")
+
+        store_job_offer(company_name, job_title, location, workplace_type)
+
+
+def store_job_offer(company_name, job_title, location, workplace_type):
+    with open("job_offers.csv", mode="a", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow([company_name, job_title, location, workplace_type])
 
 
 def attach_cv(driver, cv_path):
@@ -116,4 +124,3 @@ def main():
 if __name__ == '__main__':
     load_dotenv()
     main()
-
