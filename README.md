@@ -15,7 +15,7 @@ git clone https://github.com/Axlfc/find-a-job
 2. Navigate to the project directory:
 
 ```
-cd cv-reachout
+cd find-a-job
 ```
 
 3. Install the required dependencies:
@@ -42,7 +42,7 @@ pip3 install -r requirements.txt
 2. Run the script:
  
 ```
-python reachout.py
+python3 reachout.py
 ```
 
 3. The script will open a Firefox browser window and navigate to the LinkedIn login page.
